@@ -1,1 +1,1 @@
-# -statistical-algorithms
+# statistical-algorithms
