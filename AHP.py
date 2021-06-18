@@ -1,12 +1,12 @@
 import numpy as np
 
-n=int(input("kaç etken var?:"))
+n=int(input("how much factors?:"))
 y=0
 dt=0
 
 tablo=np.array([[0]*n]*n,dtype=float)
 tablo=tablo.reshape(n,n)
-print("oluşturduğunuz tablo:\n",tablo)
+print("zero table:\n",tablo)
 
 for i in range(0,n):
     for j in range(0,n):
@@ -14,30 +14,30 @@ for i in range(0,n):
             if i==j:
                 tablo[i,j]=1
             else:
-                tablo[i,j]=float(input("değer:"))
+                tablo[i,j]=float(input("value:"))
                 tablo[j,i]=float(1/tablo[i,j])
                 if tablo[i,j]>9 or tablo[i,j]<0:
                     print("olmaz öyle şey")
-                    tablo[i,j]=float(input("tekrar:"))
+                    tablo[i,j]=float(input("again:"))
                     tablo[j,i]=float(1/tablo[i,j])
             
                 
-print("değer tablosu:\n",tablo)
+print("value table:\n",tablo)
 
 a=tablo.sum(0)
 print("toplam:",a)
 
 tablo2=tablo/a
-print("ağırlık tablosu:\n",tablo2)
+print("rate table:\n",tablo2)
 
 tablo3=tablo2
 
 w=tablo3.sum(1)
 print(w)
 k=w/n
-print("ağırlık değerleri:\n",k)
+print("rate values:\n",k)
 
-ı=int(input("kaç seçenek var?:"))
+ı=int(input("how much options?:"))
 gt=[0]*ı
 
 for l in range (1,n+1):
@@ -51,23 +51,23 @@ for l in range (1,n+1):
                 if i==j:
                     tablo10[i,j]=1
                 else:
-                    tablo10[i,j]=float(input("değer:"))
+                    tablo10[i,j]=float(input("value:"))
                     tablo10[j,i]=float(1/tablo10[i,j])
                     if tablo10[i,j]>9 or tablo10[i,j]<0:
                         print("olmaaz")
-                        tablo10[i,j]=float(input("tekrar:"))
+                        tablo10[i,j]=float(input("again:"))
                         tablo10[j,i]=float(1/tablo10[i,j])
                     
-    print("oluşturduğunuz tablo:\n",tablo10)
+    print("sum table:\n",tablo10)
                 
     a=tablo10.sum(0)
-    print("toplam tablosu:",a)
+    print("table 1:",a)
      
     tablo11=tablo10/a
-    print("ağırlık tablosu:\n",tablo11)
+    print("table 2:\n",tablo11)
      
     tablo12=tablo11.sum(1)
-    print("ağırlık değerleri:\n",tablo12/(tablo12.size))
+    print("rate values:\n",tablo12/(tablo12.size))
     ad=tablo12/(tablo12.size)
      
     for h in range (0,ı):
@@ -77,5 +77,5 @@ for l in range (1,n+1):
         
              
      
-print("uygunluk değerleri:", gt)
-print("{}. seçenek uygundur".format(gt.index(max(gt))+1)) 
+print("relevance values:", gt)
+print("{}.th option is optimal".format(gt.index(max(gt))+1)) 
